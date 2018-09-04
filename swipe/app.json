@@ -22,6 +22,12 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package" : "com.lak0sta.swipe",
+      "versionCode": 1,
+      "permissions": [],
+      "icon": "./assets/icon.png"
     }
   }
 }
