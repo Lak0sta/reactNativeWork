@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
 
+import store from './store';
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import MapScreen from './screens/MapScreen';
@@ -12,7 +14,7 @@ import ReviewScreen from './screens/ReviewScreen';
 const stackNav = createStackNavigator({
   Review: ReviewScreen,
   Settings: SettingsScreen
-})
+});
 
 const mainTabs = createBottomTabNavigator({
   Map: MapScreen,
@@ -21,11 +23,26 @@ const mainTabs = createBottomTabNavigator({
 });
 
 
-export default createBottomTabNavigator({
+const MainBottomTabsNavigator = createBottomTabNavigator({
     Welcome:  WelcomeScreen,
     Auth: AuthScreen,
     main: mainTabs
+},{
+  navigationOptions: {
+    tabBarVisible: false
+  }
 });
+
+class App extends React.Component {
+  render () {
+    return (
+      <Provider store={store}>
+        <MainBottomTabsNavigator />
+      </Provider>
+    )
+  }
+}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -35,3 +52,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
