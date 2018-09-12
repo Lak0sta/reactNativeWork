@@ -21,7 +21,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "com.edsson.lak0sta",
+      "config": {
+        "googleMaps": { "apiKey": "AIzaSyB6yBIdArLALP0VYoGsNRRCUDkhw7XeL0I" }
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, AsyncStorage } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
 
@@ -34,6 +34,9 @@ const MainBottomTabsNavigator = createBottomTabNavigator({
 });
 
 class App extends React.Component {
+  // componentWillMount() {
+  //   AsyncStorage.removeItem('fb_token');
+  // }
   render () {
     return (
       <Provider store={store}>
